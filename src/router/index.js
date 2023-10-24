@@ -18,6 +18,11 @@ const router = createRouter({
       path: '/template',
       name: 'template',
       component: () => import('../views/TempView.vue')
+    },
+    {
+      path: '/reactivity',
+      name: 'reactivity',
+      component: () => import('../views/ReactivityView.vue')
     }
   ]
 })
