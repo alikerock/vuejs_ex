@@ -1,11 +1,17 @@
 <script>
 import ButtonCounter from './ButtonCounter.vue';
 import BlogPost from './BlogPost.vue';
+import Home from './Tabs/home.vue';
+import Posts from './Tabs/post.vue';
+import Archives from './Tabs/archive.vue';
 
 export default {
   components: {
     ButtonCounter,
-    BlogPost
+    BlogPost,
+    Home,
+    Posts,
+    Archives
   },
   data(){
     return{
@@ -14,7 +20,9 @@ export default {
         {id:2, title:'제목2'},
         {id:3, title:'제목3'}
       ],
-      postFontSize: 1
+      postFontSize: 1,
+      currentTab:'Home',
+      tabs:['Home', 'Posts', 'Archive']
     }
   }
 }
@@ -34,8 +42,29 @@ export default {
         :key="post.id"
         :title="post.title"
         @enlarge-text="postFontSize += 0.1"
+        @smaller-text="postFontSize -= 0.1"
       />
+    </div>
+    <hr>
+    <h2>Tab</h2>
+    <div class="tabs">
+      <div class="buttons">
+        <button 
+          v-for="tab in tabs"
+          :key="tab"
+          :class="['tab-button', {active : currentTab === tab}]"
+        >{{ tab }}</button>
+      </div>
     </div>
   </div>
 </template>
+<style>
+.buttons button{
+  opacity: 0.5;
+  padding: 10px;
+}
+.buttons button.active{
+  opacity: 1;
+}
+</style>
 
