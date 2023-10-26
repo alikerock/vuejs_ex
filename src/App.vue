@@ -24,6 +24,7 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/lifecycle">Lifecycle Hooks</RouterLink>
         <RouterLink to="/watchers">Watchers</RouterLink>
         <RouterLink to="/refs">refs</RouterLink>
+        <RouterLink to="/comp_basic">Components Basics</RouterLink>
       </nav>
     </div>
   </header>
